@@ -9,7 +9,7 @@ namespace What_sTheWeather.Models
     public class Weather
     {
         public string CityName { get; set; }
-        public string Farenheit { get; set; }
+        public double Farenheit { get; set; }
         public double TempFeelsLike { get; set; }
         public string Key { get; set; }
         public string JSON { get; set; }

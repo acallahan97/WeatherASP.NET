@@ -33,7 +33,12 @@ namespace What_sTheWeather.Controllers
             var response = client.GetStringAsync(weatherURL).Result;
             weather1.JSON = response;
             JObject formattedResponse = JObject.Parse(response);
-            weather1.Farenheit = formattedResponse["list"][0]["main"].ToString();
+            weather1.Farenheit = (double)formattedResponse["list"][0]["main"]["temp"];
+            weather1.TempFeelsLike = (double)formattedResponse["list"][0]["main"]["feels_like"];
+            weather1.TempMax = (double)formattedResponse["list"][0]["main"]["temp_max"];
+            weather1.TempMin = (double)formattedResponse["list"][0]["main"]["temp_min"];
+            weather1.Humidity = (long)formattedResponse["list"][0]["main"]["humidity"];
+            weather1.Pressure = (long)formattedResponse["list"][0]["main"]["pressure"];
             return View(weather1);
         }
     }
