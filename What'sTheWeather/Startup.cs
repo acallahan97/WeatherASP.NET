@@ -4,8 +4,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -30,7 +32,7 @@ namespace What_sTheWeather
                 return conn;
             });
 
-            services.AddTransient < IWeather, WeatherRepo() >;
+            services.AddTransient < IWeather, WeatherRepo>();
 
             services.AddControllersWithViews();
         }

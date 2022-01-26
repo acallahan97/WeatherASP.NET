@@ -1,8 +1,25 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model Weather
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4 text-white">Welcome</h1>
+    <hr />
+
+    @using (Html.BeginForm("GetWeather", "Weather", FormMethod.Post))
+    {
+        <div class="d-flex justify-content-around">
+            <table>
+                <tr>
+                    <td class="text-white ml-5">Enter City Name: </td>
+                    <td>@Html.TextBoxFor(weather => weather.CityName)</td>
+                </tr>
+                <tr>
+                    <td class="text-white ml-5">Enter Your API Key: </td>
+                    <td>@Html.TextBoxFor(weather => weather.Key)</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Submit Form" /></td>
+                </tr>
+            </table>
+        </div>
+    }
 </div>
